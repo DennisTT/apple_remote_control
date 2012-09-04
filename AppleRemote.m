@@ -198,14 +198,10 @@ const char* AppleRemoteDeviceName = "AppleIRController";
 }
 
 - (void) sendRemoteButtonEvent: (RemoteControlEventIdentifier) event pressedDown: (BOOL) pressedDown {
-	if (pressedDown == NO && event == kRemoteButtonMenu_Hold) {
-		// There is no seperate event for pressed down on menu hold. We are simulating that event here
-		[super sendRemoteButtonEvent:event pressedDown:YES];
-	}
 	
 	[super sendRemoteButtonEvent:event pressedDown:pressedDown];
 	
-	if (pressedDown && (event == kRemoteButtonRight || event == kRemoteButtonLeft || event == kRemoteButtonPlay || event == kRemoteButtonMenu || event == kRemoteButtonPlay_Hold)) {
+	if (pressedDown && (event == kRemoteButtonRight || event == kRemoteButtonLeft || event == kRemoteButtonPlay || event == kRemoteButtonMenu || event == kRemoteButtonPlay_Hold || event == kRemoteButtonMenu_Hold)) {
 		// There is no seperate event when the button is being released. We are simulating that event here
 		[super sendRemoteButtonEvent:event pressedDown:NO];
 	}
