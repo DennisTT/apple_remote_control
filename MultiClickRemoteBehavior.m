@@ -44,9 +44,7 @@ const NSTimeInterval HOLD_RECOGNITION_TIME_INTERVAL=0.4;
 // Delegating objects do not (and should not) retain their delegates. 
 // However, clients of delegating objects (applications, usually) are responsible for ensuring that their delegates are around
 // to receive delegation messages. To do this, they may have to retain the delegate.
-- (void) setDelegate: (id) _delegate {
-	if (_delegate && [_delegate respondsToSelector:@selector(remoteButton:pressedDown:clickCount:)]==NO) return;
-	
+- (void) setDelegate: (id<MultiClickRemoteBehaviorDelegate>) _delegate {
 	delegate = _delegate;
 }
 - (id) delegate {

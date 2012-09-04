@@ -83,7 +83,7 @@
 /* 
  * Method definitions for the delegate of the MultiClickRemoteBehavior class
  */
-@interface NSObject(MultiClickRemoteBehaviorDelegate)
+@protocol MultiClickRemoteBehaviorDelegate <NSObject>
 
 - (void) remoteButton: (RemoteControlEventIdentifier)buttonIdentifier pressedDown: (BOOL) pressedDown clickCount: (unsigned int) count;
 
